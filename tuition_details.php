@@ -143,26 +143,26 @@ $averageRating = $row['avg_rating'] ? number_format($row['avg_rating'], 1) : 0;
         margin-bottom: 20px;
         padding-bottom: 10px;
         border-bottom: 2px solid #f4f4f4;
-    }
+        }
 
-    .reviews-header h4 {
-        margin: 0;
-        color: #1a2238;
-        font-size: 1.5rem;
-    }
+        .reviews-header h4 {
+            margin: 0;
+            color: #1a2238;
+            font-size: 1.5rem;
+        }
 
-    .reviews-header .review-btn {
-        background-color: #1a2238;
-            color: white;
-        padding: 8px 16px;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-    }
+        .reviews-header .review-btn {
+            background-color: #1a2238;
+                color: white;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
 
-    .reviews-header .review-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
-}
+        .reviews-header .review-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
 
 
         /* Clear floats */
@@ -231,6 +231,29 @@ $averageRating = $row['avg_rating'] ? number_format($row['avg_rating'], 1) : 0;
             font-size: 0.9rem;
         }
     }
+
+    /* Favorite button styling */
+    .favorite-btn-large {
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .favorite-btn-large.active {
+        background-color: #1a2238;
+        border-color: #1a2238;
+        color: white;
+    }
+
+    .favorite-btn-large:not(.active):hover {
+        background-color: #9daaf2;
+        border-color: #1a2238;
+        color: #1a2238;
+    }
+
+    .favorite-btn-large.active:hover {
+        background-color: #9daaf2;
+        border-color: #1a2238;
+    }
     </style>
 </head>
 
@@ -286,6 +309,35 @@ $averageRating = $row['avg_rating'] ? number_format($row['avg_rating'], 1) : 0;
                     echo htmlspecialchars(implode(' | ', $languages));
                 ?></span></p>
                 <p><strong><i class="fas fa-money-bill-wave"></i> Price Range: RM</strong> <span><?php echo htmlspecialchars($tuition['price_range']); ?></span></p>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <!-- Favorite Button -->
+                    <button class="btn btn-outline-primary favorite-btn-large 
+                    <?php 
+                        // Prepare the statement
+                        $checkFav = $conn->prepare("SELECT * FROM favorites WHERE user_id = ? AND tuition_center_id = ?");
+                        // Bind the parameters to the statement
+                        $checkFav->bind_param("ii", $_SESSION['user_id'], $tuition_center_id);
+                        // Execute the statement
+                        $checkFav->execute();
+                        // Display the active class if the favorite exists
+                        echo $checkFav->get_result()->num_rows > 0 ? 'active' : '';
+                    ?>" data-center-id="<?php echo $tuition_center_id; ?>">
+                        <i class="fas fa-heart"></i> 
+                        <span class="favorite-text">
+                            <?php 
+                            // Execute the statement
+                            $checkFav->execute();
+                            // Display the text based on whether the favorite exists
+                            echo $checkFav->get_result()->num_rows > 0 ? 'Remove from Favorites' : 'Add to Favorites';
+                            ?>
+                        </span>
+                    </button>
+                <?php else: ?>
+                    <!-- Login to Favorite Button -->
+                    <button class="btn btn-outline-primary" disabled>
+                        <i class="fas fa-heart"></i> Login to Favorite
+                    </button>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -698,6 +750,48 @@ $averageRating = $row['avg_rating'] ? number_format($row['avg_rating'], 1) : 0;
                 console.error('Error:', error);
                 // Display an error message if an error occurred while booking the appointment
                 alert('An error occurred while booking the appointment');
+            });
+        });
+    });
+
+    // Handle favorite button clicks
+    document.querySelectorAll('.favorite-btn-large').forEach(button => {
+        // Add event listener to the favorite button
+        button.addEventListener('click', function() {
+            // Get the center ID and check if it's favorited
+            const centerId = this.dataset.centerId;
+            const isFavorited = this.classList.contains('active');
+
+            // Send the data to the backend via AJAX (using Fetch API)
+            fetch('toggle_favorite.php', {
+                // Specify the method as POST
+                method: 'POST',
+                // Set the content type to URL-encoded form data
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                // Send the data as URL-encoded form data
+                body: `center_id=${centerId}&action=${isFavorited ? 'remove' : 'add'}`
+            })
+            // Handle the response from the backend
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Toggle the active class on the favorite button
+                    this.classList.toggle('active');
+                    // Update the text of the favorite button
+                    const textSpan = this.querySelector('.favorite-text');
+                    textSpan.textContent = isFavorited ? 'Add to Favorites' : 'Remove from Favorites';
+                } else {
+                    // Display an error message if the favorite status was not updated successfully
+                    alert('Error updating favorite status');
+                }
+            })
+            .catch(error => {
+                // Log the error
+                console.error('Error:', error);
+                // Display an error message if an error occurred while updating the favorite status
+                alert('An error occurred while updating favorite status');
             });
         });
     });
