@@ -1,0 +1,2658 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0; /* Remove default margin (margin 0 means no margin) */
+    padding: 0; /* Remove default padding (padding 0 means no padding) */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-family: "Poppins", sans-serif; /* Set the font family to Poppins */
+}
+
+/* Body styles */
+body {
+    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+    display: flex; /* Use flexbox to layout the body */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Distribute space between items */
+    align-items: center; /* Center horizontally */
+    padding-top: 80px; /* Space for the navbar */
+    padding-bottom: 50px; /* Space for the footer */
+    background-color: rgb(240, 240, 240); /* Optional background color */
+}
+
+/* Navbar styles */
+header {
+    width: 100%;
+    position: fixed; /* Keep the header fixed */
+    top: 0; /* Position at the top of the viewport */
+    left: 0; /* Position at the left of the viewport */
+    z-index: 1000; /* Ensure the header is above other elements */
+    background-color: #1a2238; /* Updated primary color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.navbar {
+    max-width: 1280px;
+    margin: 0 auto; /* Center navbar */
+    padding: 10px 20px; /* Padding for navbar */
+    display: flex; /* Use flexbox to layout the navbar */
+    justify-content: space-between; /* Space between navbar items */
+    align-items: center; /* Center items vertically */
+}
+
+/* Navbar links default state */
+.navbar-nav .nav-link {
+    color: #9daaf2; /* Updated link color */
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: all 0.3s ease; /* Smooth transition for hover and click */
+    position: relative;
+}
+
+/* Hover effect on links */
+.navbar-nav .nav-link:hover {
+    background-color: #9daaf2; /* Secondary color on hover */
+    color: white; /* Keep text white on hover */
+    transform: translateY(-2px); /* Slight hover movement */
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+/* Active link state */
+.navbar-nav .nav-link.active {
+    background-color: #f4db7d; /* Change to a different color when active */
+    color: #333; /* Dark text on light background */
+    border-radius: 4px;
+}
+
+/* Add an underline animation when hovering */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #4fcbe9; /* Another secondary color */
+    transition: width 0.3s ease;
+}
+
+/* Underline grows on hover */
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Auth links hover effect */
+.auth-links .nav-link:hover {
+    color: #9daaf2; /* Change text color for auth links on hover */
+    transition: color 0.3s ease;
+}
+
+/* Navbar custom color for links */
+.navbar-custom {
+    background-color: #1a2238 !important; /* Ensures the blue color is applied */
+    color: white;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+/* Navbar link styles */
+.navbar-custom .nav-link {
+    color: white !important; /* Makes sure the text is white */
+    font-size: 0.9rem;  /* Reduced font size */
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+}
+
+/* Navbar brand styles (for the logo) */
+.navbar-custom .navbar-brand {
+    color: white !important; /* Ensures brand text is white */
+    font-size: 1.1rem;  /* Slightly larger than nav items, but smaller than before */
+    font-weight: normal;      /* Changed from bold to normal */
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+}
+
+/* Navbar toggle button styles (for the hamburger menu) */
+.navbar-custom .navbar-toggler {
+    border-color: white; /* Changes the border color of the toggle button */
+    padding: 0.25rem 0.45rem; /* Adjust padding */
+    font-size: 1rem;
+}
+
+/* Navbar toggle icon styles (for the hamburger menu) */
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28white, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    /* Changes toggle icon color */
+}
+
+/* Active link styles (for the active link) */
+.navbar-custom .nav-link.active {
+    background-color: #ff6a3d;
+    color: #1a2238;
+    border-radius: 4px;
+}
+
+/* Button hover effect similar to navbar links */
+.nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #9daaf2;
+    color: white;
+}
+
+/* Sign-up container styles */
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Background color for the form */
+    margin-top: auto; /* Allow space at the top for centering */
+    margin-bottom: auto; /* Allow space at the bottom for centering */
+    flex-grow: 1; /* Take available vertical space */
+    text-align: center; /* Center content inside the form */
+}
+
+/* Input field styles (for the input fields) */
+.input-box {
+    width: 100%;
+    margin-top: 15px;
+    position: relative;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-box input:focus {
+    border-color: #1a2238; /* Focus color */
+}
+
+/* Button styles (for the buttons) */
+.button {
+    margin-top: 15px;
+    display: inline-block; /* Inline block to keep button size dynamic */
+}
+
+.button input {
+    background: #1a2238; /* Primary color for button */
+    color: #fff;
+    border: none;
+    padding: 10px 20px; /* Adjust padding for better alignment */
+    font-size: 1rem;
+    cursor: pointer; /* Cursor pointer for the button (Pointer is used to indicate a clickable element) */
+    border-radius: 4px;
+    width: auto; /* Make the width auto so it adjusts to text size */
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Keeps the button aligned with the text size */
+}
+
+.button input:hover {
+    background: #ff6a3d; /* Hover color */
+}
+
+/* Error styles */
+.error {
+    display: none; /* Hide the error message by default */
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.error-icon {
+    margin-right: 5px; /* Add space to the right of the error icon */
+}
+
+.invalid input {
+    border-color: red; /* Change the border color to red when the input is invalid */
+}
+
+.invalid .error {
+    display: flex; /* Display the error message */
+}
+
+.left-nav {
+    width: 20%;
+    float: left; /* Float the left-nav to the left */
+}
+
+.main-content {
+    width: 90%; /* Set the width of the main content */
+    margin: 0 auto;
+}
+
+.profile-details, .notification-settings {
+    padding: 20px;
+}
+
+.profile-item, .notification-toggle {
+    display: flex; /* Display the profile item and notification toggle in a row */
+    justify-content: space-between; /* Space between the profile item and notification toggle */
+    margin-bottom: 10px; /* Add space between the profile item and notification toggle */
+}
+
+/* Footer styles */
+footer {
+    width: 100%; /* Set the width of the footer to 100% */
+    background-color: #1a2238; /* Dark blue footer */
+    color: #ffffff; /* White text */
+    padding: 20px; /* Add padding to the footer */
+    text-align: center; /* Center the text in the footer */
+    flex-shrink: 0; /* Prevent the footer from shrinking */
+}
+
+/* Footer link styles */
+footer .web-links a {
+    margin: 0 15px;
+    color: #ffffff; /* White links */
+    text-decoration: none; /* Remove underline from links */
+    font-weight: 500; /* Set the font weight to 500 */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Footer link hover effect */
+footer .web-links a:hover {
+    color: #f4db7d; /* Light yellow on hover */
+    text-decoration: underline; /* Underline the link on hover */
+}
+
+/* Footer button styles */
+footer .feedback button {
+    background-color: #ff6a3d; /* Orange button */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 16px; /* Adjust padding */
+    font-size: 14px; /* Set the font size */
+    border-radius: 4px; /* Add rounded corners */
+    cursor: pointer; /* Cursor pointer for the button */
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
+    margin-top: 10px; /* Add space to the top of the button */
+}
+
+/* Footer button hover effect */
+footer .feedback button:hover {
+    background-color: #f4db7d; /* Hover color */
+}
+
+/* Copyright text */
+footer p {
+    margin-top: 15px; /* Add space to the top of the text */
+    font-size: 14px; /* Set the font size */
+    color: #f4db7d; /* Light yellow text */
+}
+
+/* Add more space between the content and footer */
+.container {
+    margin-bottom: 40px; /* Adds more space above the footer */
+}
+
+/* Style for the lightbox popup */
+.lightbox {
+    display: none; /* Hide the lightbox by default */
+    position: fixed; /* Fix the lightbox in place */
+    z-index: 1000; /* Ensure the lightbox is on top of other elements */
+    left: 0;
+    top: 0;
+    width: 100%; /* Set the width to 100% */
+    height: 100%; /* Set the height to 100% */
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.lightbox-content {
+    background-color: #fefefe; /* Set the background color to white */
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888; /* Add a border */
+    width: 80%; /* Set the width to 80% */
+    max-width: 500px; /* Set the maximum width to 500px */
+}
+
+/* Progress Bar for Questions */
+.progress {
+    height: 20px; /* Set the height to 20px */
+    background-color: #f1f1f1; /* Set the background color to light gray */
+    border-radius: 5px; /* Add rounded corners */
+    margin-bottom: 20px; /* Add space below the progress bar */
+}
+
+.progress-bar {
+    background-color: #ff6a3d;
+    height: 100%; /* Set the height to 100% */
+    border-radius: 5px; /* Add rounded corners */
+}
+
+/* Additional styling for buttons */
+.btn-yes, .btn-no {
+    margin: 10px; /* Add space around the buttons */
+    padding: 10px 20px;
+}
+.profile-section {
+    display: flex; /* Display the profile section in a row */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Add space between items */
+    position: relative;
+}
+
+#profile {
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    padding: 6px 15px; /* Adjust padding */
+    border: 1px solid white; /* Add a border */
+}
+
+#notificationsDropdown {
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    padding: 6px 15px; /* Adjust padding */
+    border: 1px solid white; /* Add a border */
+}
+
+#profile:hover,
+#notificationsDropdown:hover {
+    background-color: #9daaf2; /* Hover color */
+    color: #1a2238;
+}
+
+#profile.active {
+    background-color: #ff6a3d; /* Active color */
+    color: white; /* White text */
+}
+
+#notificationCount {
+    position: absolute; /* Use absolute positioning */
+    top: -5px; /* Adjust the vertical position */
+    right: -10px; /* Adjust the horizontal position */
+    background-color: #ff6a3d; /* Badge background color */
+    color: white; /* Badge text color */
+    padding: 0.25em 0.6em; /* Padding for the badge */
+    border-radius: 50%; /* Make the badge circular */
+    font-size: 12px; /* Font size for the badge */
+    z-index: 1; /* Ensure the badge is above other elements */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+/* Default styling for cards */
+.recommendation-card, .top-card {
+    position: relative; /* Position the cards relatively */
+    width: 100%; /* Set the width to 100% */
+    height: 400px; /* Set the height to 400px */
+    background-color: white; /* Set the background color to white */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    border-radius: 8px; /* Add rounded corners */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Display the cards in a column */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.recommendation-card img, .top-card img {
+    width: 100%; /* Set the width to 100% */
+    height: 30%; /* Set the height to 30% */
+    object-fit: cover; /* Cover the entire area */
+    object-position: center; /* Center the image */
+}
+
+.card-content {
+    padding: 15px;
+    flex-grow: 1; /* Allow the content to grow and take available space */
+    display: flex; /* Display the content in a column */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.favorite-btn {
+    position: absolute; /* Position the favorite button absolutely */
+    top: 10px; /* Position at the top */
+    right: 10px; /* Position at the right */
+    z-index: 10; /* Ensure the favorite button is on top of other elements */
+    width: 35px; /* Set the width to 35px */
+    height: 35px; /* Set the height to 35px */
+    display: flex; /* Display the favorite button in a row */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    background: transparent; /* Transparent background */
+    border: 2px solid white; /* White border */
+    border-radius: 50%; /* Make it circular */
+    cursor: pointer; /* Cursor pointer for the button */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    padding: 0; /* Remove padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: adds depth */
+}
+
+.favorite-btn i {
+    color: white; /* White heart by default */
+    font-size: 18px; /* Set the font size */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Shadow to make it visible */
+    transition: color 0.3s ease; /* Smooth transition for color */
+}
+
+/* Style for favorited items */
+.favorite-btn.active i {
+    color: #ff003c; /* Red heart when favorited */
+}
+
+/* Hover effect */
+.favorite-btn:hover {
+    transform: scale(1.1); /* Scale up on hover */
+    background: transparent; /* Maintain transparency on hover */
+}
+
+.favorite-btn:hover i {
+    color: #ff003c; /* Show red on hover */
+}
+
+.favorite-btn.active {
+    color: #ff0000; /* Red heart when favorited */
+}
+
+/* Add a subtle background to make the icon more visible on light images */
+.favorite-btn::before {
+    content: '';
+    position: absolute; /* Position the pseudo-element absolutely */
+    top: -5px; /* Position at the top */
+    left: -5px; /* Position at the left */
+    right: -5px; /* Position at the right */
+    bottom: -5px; /* Position at the bottom */
+    border-radius: 50%; /* Make it circular */
+    z-index: -1; /* Ensure it stays behind the button */
+}
+
+.details-btn {
+    align-self: flex-end; /* Align the button to the end of the card */
+    padding: 5px 10px; /* Adjust padding */
+    background-color: #1a2238; /* Dark blue background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 4px; /* Add rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for color */
+}
+
+.details-btn:hover {
+    background-color: #ff6a3d; /* Hover color */
+}
+
+.recommendation-grid, .top-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+    padding: 20px; /* Add padding */
+}
+
+.list-view .recommendation-card, .list-view .top-card {
+    width: 100%;
+    height: auto; /* Set the height to auto */
+    flex-direction: row; /* Display the cards in a row */
+    align-items: center; /* Center items vertically */
+    padding: 15px; /* Add padding */
+}
+
+.list-view .recommendation-card img, .list-view .top-card img {
+    width: 100px; /* Set the width to 100px */
+    height: 100px; /* Set the height to 100px */
+    margin-right: 20px; /* Add space to the right of the image */
+}
+
+.list-view .details-btn {
+    position: static; /* Position the button statically */
+    margin-left: auto; /* Align the button to the right */
+}
+
+/* Grid View styling */
+.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+}
+
+.list-view .recommendation-card, .list-view .top-card {
+    width: 100%;
+    display: flex; /* Display the cards in a row */
+    flex-direction: row; /* Stack items vertically */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between items */
+}
+
+/* Style the grid/list view buttons */
+.view-btn {
+    padding: 10px 15px;
+    background-color: #1a2238; /* Dark blue background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    margin-right: 10px; /* Add space to the right of the button */
+    cursor: pointer; /* Cursor pointer for the button */
+    border-radius: 5px; /* Add rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for color */
+}
+
+.view-btn:hover {
+    background-color: #ff6a3d; /* Hover color */
+}
+
+.view-btn.active {
+    background-color: #f4db7d; /* Active button color */
+    color: #1a2238;
+}
+
+/* Style the search result, recommendation, and top-rated cards */
+.recommendation-grid, .top-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 20px; /* Space between items */
+    justify-content: space-between; /* Horizontal display */
+}
+
+.recommendation-card, .search-result-card, .top-card {
+    width: 250px;
+    height: 250px; /* Set the height to 250px */
+    background-color: white; /* Set the background color to white */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    padding: 15px; /* Add padding */
+    display: flex; /* Display the cards in a column */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Space between items */
+    text-align: center; /* Center-align the text */
+}
+
+.list-view .recommendation-card, .list-view .search-result-card, .list-view .top-card {
+    width: 100%; /* Set the width to 100% */
+    height: auto; /* Set the height to auto */
+    display: flex; /* Display the cards in a row */
+    flex-direction: row; /* Stack items vertically */
+    justify-content: space-between; /* Space between items */
+    padding: 20px; /* Add padding */
+}
+
+/* Compact the spacing */
+.input-box {
+    margin-bottom: 15px; /* Add space below the input box */
+}
+
+/* Align labels to the left and input elements to center */
+label {
+    display: block;
+    margin-bottom: 5px; /* Add space below the label */
+    text-align: left; /* Align the label to the left */
+    color: #1a2238; /* Dark blue text */
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px; /* Add padding */
+    font-size: 14px; /* Set the font size */
+    box-sizing: border-box; /* Ensure the box sizing is border-box */
+}
+
+/* Center-align the button */
+.button {
+    text-align: center; /* Center-align the button */
+}
+
+/* Active link styles */
+.navbar-custom .nav-link.active {
+    background-color: #ff6a3d; /* Orange background for active link */
+    color: #ffffff; /* White text */
+    border-radius: 4px; /* Add rounded corners */
+} 
+
+/* Button hover effect similar to navbar links */
+.nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for color */
+}
+
+.nav-link:hover {
+    background-color: #9daaf2; /* Red hover effect */
+    color: white; /* Change text color on hover */
+}
+
+
+/* Remove excessive space */
+form {
+    padding: 10px; /* Add padding for the form */
+}
+
+footer {
+    margin-top: 30px; /* Add space above the footer */
+    background-color: #1a2238; /* Dark blue footer */
+    color: #ffffff; /* White text */
+    padding: 20px; /* Add padding */
+    text-align: center; /* Center-align the text */
+}
+
+/* Center the text and reduce margins */
+.login-options {
+    margin-top: 20px; /* Add space above the text */
+    text-align: center; /* Center-align the text */
+    color: #1a2238; /* Dark blue text */
+}
+
+/* Center the error message */
+.error {
+    text-align: center;
+    color: red;
+    font-size: 0.9rem; /* Set the font size */
+    display: none; /* Hide the error message by default */
+}
+
+/* Position the eye icon */
+.position-relative {
+    position: relative; /* Position the eye icon relatively */
+}
+
+.show-hide {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%); /* Center the eye icon vertically */
+    cursor: pointer; /* Cursor pointer for the eye icon */
+}
+
+.remember-me {
+    display:flex; /* Display the checkbox and label in a row */
+    align-items:center; /* Align checkbox and label vertically */
+    margin-top: 15px; /* Space above */
+}
+
+.remember-me input {
+    margin-right: 10px; /* Space between checkbox and label */
+}
+
+/*Admin*/
+
+/* Media query for smaller screens */
+@media (max-width: 992px) {
+    .navbar-custom .navbar-nav {
+        margin-left: 0; /* Remove left margin */
+        margin-right: 0; /* Remove right margin */  
+    }
+    
+    .navbar-custom .navbar-nav .nav-item {
+        margin-bottom: 0.2rem; /* Add space below the items */  
+    }
+
+    .navbar-custom .navbar-text,
+    .navbar-custom .btn-outline-light {
+        margin-top: 0.4rem; /* Add space above the text and button */   
+    }
+}
+
+/* Adjust the width of the admin dashboard container */
+.admin-dashboard-container {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto; /* Center the container */
+    padding: 20px; /* Add padding */
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+/* Style the buttons */
+.btn-primary {
+    background-color: #ff6a3d; /* Orange background */
+    border-color: #ff6a3d; /* Orange border */
+}
+
+.btn-primary:hover {
+    background-color: #e55a2d; /* Darker orange on hover */
+    border-color: #e55a2d; /* Darker orange on hover */
+}
+
+.btn-warning {
+    background-color: #f4db7d;
+    border-color: #f4db7d; /* Yellow border */
+    color: #1a2238; /* Dark blue text */
+}
+
+.btn-warning:hover {
+    background-color: #e4cb6d;
+    border-color: #e4cb6d; /* Darker yellow on hover */
+    color: #1a2238; /* Dark blue text on hover */
+}
+
+.btn-danger {
+    background-color: #ff6b6b; /* Red background */
+    border-color: #ff6b6b; /* Red border */
+}
+
+.btn-danger:hover {
+    background-color: #ff5252; /* Darker red on hover */
+    border-color: #ff5252; /* Darker red on hover */
+}
+
+.alert {
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem; /* Add space below the alert */
+    border: 1px solid transparent; /* Remove border */
+    border-radius: 0.25rem; /* Add rounded corners */
+    font-size: 0.9rem; /* Set the font size */
+}
+
+.alert-success {
+    color: #155724; /* Dark green text */
+    background-color: #d4edda; /* Light green background */
+    border-color: #c3e6cb; /* Light green border */
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da; /* Light red background */
+    border-color: #f5c6cb; /* Light red border */
+}
+
+.container-fluid {
+    max-width: 90%;
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding */
+}
+
+.tuition-center-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+}
+
+.tuition-center-card {
+    position: relative; /* Position the card relatively */
+    width: 100%; /* Full width */
+    height: 350px; /* Fixed height for all cards */
+    background-color: white; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    border-radius: 8px; /* Add rounded corners */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Display the cards in a column */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.tuition-center-card img {
+    width: 100%;
+    height: 150px; /* Fixed height for images */
+    object-fit: cover; /* Cover the entire area */
+    object-position: center; /* Center the image */
+}
+
+.card-content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex; /* Display the content in a column */
+    flex-direction: column; /* Stack items vertically */
+}
+
+/* Make titles smaller and consistent */
+.card-content h3 {
+    font-size: 1.1rem; /* Smaller title */
+    margin: 0 0 10px 0; /* Consistent margin */
+    line-height: 1.2; /* Consistent line height */
+    height: 2.4em; /* Fixed height for 2 lines of text */
+    overflow: hidden; /* Hide overflow */
+    display: -webkit-box; /* Enable multi-line text */
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical; /* Stack items vertically */
+}
+
+/* Align other content */
+.card-content img {
+    height: 150px; /* Fixed height for images */
+}
+
+/* Position the details button consistently */
+.details-btn {
+    margin-top: auto; /* Push button to bottom */
+    width: fit-content; /* Fit the button to the content */
+    padding: 8px 15px; /* Add padding */
+    align-self: flex-start; /* Align all buttons to the left */
+}
+
+/* Update the grid layout */
+.tuition-center-grid {
+    display: grid; /* Display the grid */   
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+    padding: 20px; /* Add padding */
+}
+
+/* Make favorite button position consistent */
+.favorite-btn {
+    position: absolute; /* Position the button absolutely */    
+    top: 10px; /* Position the button 10px from the top */
+    right: 10px; /* Position the button 10px from the right */
+    z-index: 10; /* Ensure the button is above other elements */
+    width: 30px; /* Set the width */
+    height: 30px; /* Set the height */
+    display: flex; /* Display the button as a flex container */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    background: rgba(255, 255, 255, 0.8); /* Light background */
+    border-radius: 50%; /* Make the button circular */
+}
+
+/* Lightbox styles */
+.lightbox {
+    display: none; /* Hide the lightbox by default */
+    position: fixed; /* Position the lightbox fixed */
+    z-index: 1000; /* Ensure the lightbox is above other elements */
+    left: 0; /* Position the lightbox at the left */
+    top: 0; /* Position the lightbox at the top */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Allow scrolling if needed */
+    background-color: rgba(0,0,0,0.4); /* Dark background with opacity */
+}
+
+.lightbox-content {
+    background-color: #fefefe; /* Light background */
+    margin: 15% auto; /* Center the lightbox */
+    padding: 20px; /* Add padding */
+    border: 1px solid #888; /* Add a border */
+    width: 80%; /* 80% of the screen width */
+    max-width: 500px; /* Maximum width */
+}
+
+.section-container {
+    margin-bottom: 40px; /* Add space below the section */  
+}
+
+.section-title { 
+    font-size: 24px; /* Set the font size */    
+    font-weight: bold; /* Set the font weight */
+    margin-bottom: 20px; /* Add space below the title */
+    padding-bottom: 10px; /* Add space below the title */
+    border-bottom: 2px solid #1a2238; /* Add a border below the title */
+}
+
+.tuition-center-card img {
+    width: 100%;
+    height: 30%; /* 30% of the card's height */
+    object-fit: cover; /* Cover the entire area */
+    object-position: center; /* Center the image */
+}
+
+.card-content {
+    padding: 15px; /* Add padding */
+    flex-grow: 1; /* Allow the content to grow */
+    display: flex; /* Display the content in a column */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Space between items */
+}
+
+.favorite-btn {
+    position: absolute; /* Position the button absolutely */
+    top: 10px; /* Position the button 10px from the top */
+    right: 10px; /* Position the button 10px from the right */
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 18px; /* Set the font size */
+    color: #ff6b6b; /* Red color */
+    cursor: pointer; /* Cursor pointer */
+    transition: color 0.3s ease; /* Smooth transition for color */
+    z-index: 10; /* Ensure the button is above other elements */
+}
+
+.favorite-btn:hover,
+.favorite-btn.active {
+    color: #ff0000; /* Red color on hover */
+}
+
+.details-btn {
+    align-self: flex-end; /* Align the button to the bottom */  
+    padding: 5px 10px; /* Add padding */
+    background-color: #1a2238; /* Dark blue background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 4px; /* Add rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.details-btn:hover {
+    background-color: #ff6a3d; /* Orange background on hover */
+}
+
+.tuition-section {
+    margin-bottom: 40px; /* Add space below the section */  
+}
+
+.section-title {
+    font-size: 24px; /* Set the font size */    
+    font-weight: bold; /* Set the font weight */
+    margin-bottom: 20px; /* Add space below the title */
+    padding-bottom: 10px; /* Add space below the title */
+    border-bottom: 2px solid #1a2238; /* Add a border below the title */
+}
+
+.tuition-center-grid {
+    display: flex; /* Display the grid */
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 20px; /* Space between items */
+}
+
+.tuition-center-card {
+    flex: 0 0 calc(20% - 16px);
+    max-width: calc(20% - 16px); /* Maximum width */
+    position: relative; /* Position the card relatively */
+    height: 300px; /* Fixed height */
+    background-color: white; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    border-radius: 8px; /* Add rounded corners */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Display the cards in a column */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.tuition-center-card img {
+    width: 100%; /* Full width */    
+    height: 30%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.favorite-btn {
+    position: absolute; /* Position the button absolutely */    
+    top: 10px; /* Position the button 10px from the top */
+    right: 10px; /* Position the button 10px from the right */
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 18px; /* Set the font size */
+    color: #ff6b6b; /* Red color */
+    cursor: pointer; /* Cursor pointer */
+    transition: color 0.3s ease; /* Smooth transition for color */
+    z-index: 10; /* Ensure the button is above other elements */
+}
+
+.favorite-btn:hover,
+.favorite-btn.active {
+    color: #ff0000;
+}
+
+.details-btn {
+    align-self: flex-end; /* Align the button to the bottom */
+    padding: 5px 10px; /* Add padding */
+    background-color: #1a2238; /* Dark blue background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 4px; /* Add rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.details-btn:hover {
+    background-color: #ff6a3d; /* Orange background on hover */
+}
+
+.nav-link .fa-bell {
+    font-size: 1.2rem; /* Set the font size */
+    transition: color 0.3s ease; /* Smooth transition for color */
+}
+
+.nav-link:hover .fa-bell {
+    color: #007bff; /* Blue color on hover */   
+}
+
+#notificationsList {
+    max-height: 300px; /* Fixed height */
+    overflow-y: auto; /* Allow scrolling if needed */
+}
+
+.notification-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e9ecef; /* Add a border below the notification */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.notification-item:hover {
+    background-color: #f8f9fa; /* Light gray background on hover */
+}
+
+.notification-item.unread {
+    background-color: #e9ecef; /* Light gray background */  
+}
+
+.notification-item.unread:hover {
+    background-color: #dee2e6;
+}
+
+/* Admin dashboard container */
+.admin-dashboard-container {
+    max-width: 90%; /* Maximum width */
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+    padding: 20px; /* Add padding */
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+/* Table styles */
+.table-responsive {
+    margin-top: 20px; /* Add space above the table */
+}
+
+.table {
+    width: 100%; /* Full width */
+    margin-bottom: 1rem; /* Add space below the table */
+    color: #212529; /* Dark gray text */
+    vertical-align: top; /* Align the table content to the top */
+    border-color: #dee2e6; /* Light gray border */
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6; /* Light gray border */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05); /* Light gray background */
+}
+
+.table-dark {
+    color: #fff; /* White text */
+    background-color: #212529; /* Dark gray background */
+}
+
+/* Button styles */
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem; /* Set the font size */
+    border-radius: 0.2rem; /* Add rounded corners */
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #28a745; /* Green background */
+    border-color: #28a745; /* Green border */
+}
+
+.btn-primary {
+    color: #fff; /* White text */
+    background-color: #007bff; /* Blue background */
+    border-color: #007bff; /* Blue border */
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545; /* Red background */
+    border-color: #dc3545; /* Red border */
+}
+
+/* Alert styles */
+.alert {
+    position: relative; /* Position the alert relatively */
+    padding: 0.75rem 1.25rem; /* Add padding */
+    margin-bottom: 1rem; /* Add space below the alert */
+    border: 1px solid transparent; /* Transparent border */
+    border-radius: 0.25rem; /* Add rounded corners */
+}
+
+.alert-success {
+    color: #155724; /* Dark green text */
+    background-color: #d4edda; /* Light green background */
+    border-color: #c3e6cb; /* Light green border */
+}
+
+.alert-danger {
+    color: #721c24; /* Dark red text */
+    background-color: #f8d7da; /* Light red background */
+    border-color: #f5c6cb; /* Light red border */
+}
+
+.container-fluid {
+    max-width: 90%;
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding */
+}
+
+
+.tuition-center-card {
+    position: relative; /* Position the card relatively */
+    width: 100%; /* Full width */
+    height: 350px; /* Fixed height for all cards */
+    background-color: white; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    border-radius: 8px; /* Add rounded corners */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Display the cards in a column */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.tuition-center-card img {
+    width: 100%;
+    height: 150px; /* Fixed height for images */
+    object-fit: cover; /* Cover the entire area */
+    object-position: center; /* Center the image */ 
+}
+
+/* Make titles smaller and consistent */
+.card-content h3 {
+    font-size: 1.1rem; /* Smaller title */
+    margin: 0 0 10px 0; /* Consistent margin */
+    line-height: 1.2;
+    height: 2.4em; /* Fixed height for 2 lines of text */
+    overflow: hidden; /* Hide overflow */
+    display: -webkit-box; /* Enable text truncation */
+    -webkit-line-clamp: 2; /* Truncate after 2 lines */
+    line-clamp: 2; /* Truncate after 2 lines */
+    -webkit-box-orient: vertical; /* Stack items vertically */
+}
+
+/* Align other content */
+.card-content img {
+    height: 150px; /* Fixed height for images */
+}
+
+/* Position the details button consistently */
+.details-btn {
+    margin-top: auto; /* Push button to bottom */
+    width: fit-content; /* Fit the button to the content */
+    padding: 8px 15px; /* Add padding */
+    align-self: flex-start; /* Align all buttons to the left */
+}
+
+/* Update the grid layout */
+.tuition-center-grid {
+    display: grid; /* Display the grid */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+    padding: 20px; /* Add padding */
+}
+
+/* Make favorite button position consistent */
+.favorite-btn {
+    position: absolute; /* Position the button absolutely */
+    top: 10px; /* Position the button 10px from the top */
+    right: 10px; /* Position the button 10px from the right */
+    z-index: 10; /* Ensure the button is above other elements */
+    width: 30px; /* Fixed width */
+    height: 30px; /* Fixed height */
+    display: flex; /* Display the button as a flex container */
+    align-items: center;
+    justify-content: center; /* Center the content */
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 50%; /* Make the button circular */
+}
+
+/* Lightbox styles */
+.lightbox {
+    display: none; /* Hide the lightbox initially */
+    position: fixed; /* Position the lightbox fixed */
+    z-index: 1000; /* Ensure the lightbox is above other elements */
+    left: 0; /* Position the lightbox at the left */
+    top: 0; /* Position the lightbox at the top */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Allow scrolling if needed */
+    background-color: rgba(0,0,0,0.4); /* Semi-transparent background */
+}
+
+.lightbox-content {
+    background-color: #fefefe; /* White background */
+    margin: 15% auto; /* Center the content */
+    padding: 20px; /* Add padding */
+    border: 1px solid #888; /* Light gray border */
+    width: 80%; /* 80% of the screen */
+    max-width: 500px; /* Maximum width */
+}
+
+.section-container {
+    margin-bottom: 40px; /* Add space below the section */  
+}
+
+.section-title {
+    font-size: 24px; /* Set the font size */
+    font-weight: bold; /* Set the font weight */
+    margin-bottom: 20px; /* Add space below the title */
+    padding-bottom: 10px; /* Add space below the title */
+    border-bottom: 2px solid #1a2238; /* Add a border below the title */
+}
+
+.tuition-center-grid {
+    display: grid; /* Display the grid */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+}
+
+.tuition-center-card {
+    position: relative; /* Position the card relatively */  
+    width: 100%; /* Full width */
+    height: 350px; /* Fixed height */
+    background-color: white; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    border-radius: 8px; /* Add rounded corners */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Display the cards in a column */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.tuition-center-card img {
+    width: 100%;
+    height: 30%; /* 30% of the card */
+    object-fit: cover; /* Cover the entire area */
+    object-position: center; /* Center the image */
+}
+
+.favorite-btn {
+    position: absolute; /* Position the button absolutely */
+    top: 10px; /* Position the button 10px from the top */
+    right: 10px; /* Position the button 10px from the right */
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 18px; /* Set the font size */
+    color: #ff6b6b; /* Red color */
+    cursor: pointer; /* Cursor pointer */
+    transition: color 0.3s ease; /* Smooth transition for color */
+    z-index: 10; /* Ensure the button is above other elements */
+}
+
+.favorite-btn:hover,
+.favorite-btn.active {
+    color: #ff0000; /* Red color on hover */
+}
+
+.details-btn {
+    align-self: flex-end; /* Align the button to the bottom */
+    padding: 5px 10px; /* Add padding */
+    background-color: #1a2238; /* Dark blue background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 4px; /* Add rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.details-btn:hover {
+    background-color: #ff6a3d; /* Orange background on hover */ 
+}
+
+.tuition-section {
+    margin-bottom: 40px; /* Add space below the section */  
+}
+
+.section-title {
+    font-size: 24px; /* Set the font size */
+    font-weight: bold; /* Set the font weight */
+    margin-bottom: 20px; /* Add space below the title */
+    padding-bottom: 10px; /* Add space below the title */
+    border-bottom: 2px solid #1a2238; /* Add a border below the title */
+}
+
+.tuition-center-grid {
+    display: flex; /* Display the grid */
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 20px; /* Space between items */
+}
+
+.tuition-center-card {
+    flex: 0 0 calc(20% - 16px);
+    max-width: calc(20% - 16px); /* Responsive width */
+    position: relative; /* Position the card relatively */
+    height: 300px; /* Fixed height */
+    background-color: white; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    border-radius: 8px; /* Add rounded corners */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Display the cards in a column */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.tuition-center-card img {
+    width: 100%;
+    height: 30%; /* 30% of the card */
+    object-fit: cover; /* Cover the entire area */
+    object-position: center; /* Center the image */
+}
+
+.card-content {
+    padding: 15px; /* Add padding */
+    flex-grow: 1; /* Allow the content to grow */
+    display: flex; /* Display the content as a flex container */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Space between items */
+}
+
+.favorite-btn {
+    position: absolute; /* Position the button absolutely */
+    top: 10px; /* Position the button 10px from the top */
+    right: 10px; /* Position the button 10px from the right */
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 18px; /* Set the font size */
+    color: #ff6b6b; /* Red color */
+    cursor: pointer; /* Cursor pointer */
+    transition: color 0.3s ease; /* Smooth transition for color */
+    z-index: 10; /* Ensure the button is above other elements */
+}
+
+.favorite-btn:hover,
+.favorite-btn.active {
+    color: #ff0000;
+}
+
+.details-btn {
+    align-self: flex-end; /* Align the button to the bottom */  
+    padding: 5px 10px; /* Add padding */
+    background-color: #1a2238; /* Dark blue background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 4px; /* Add rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.details-btn:hover {
+    background-color: #ff6a3d; /* Orange background on hover */ 
+}
+
+.nav-link .fa-bell {
+    font-size: 1.2rem; /* Set the font size */
+    transition: color 0.3s ease; /* Smooth transition for color */
+}
+
+.nav-link:hover .fa-bell {
+    color: #007bff;
+}
+
+#notificationsList {
+    max-height: 300px; /* Set the maximum height */ 
+    overflow-y: auto; /* Allow scrolling if needed */
+}
+
+.notification-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e9ecef; /* Add a border below the notification */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.notification-item:hover {
+    background-color: #f8f9fa; /* Light gray background on hover */
+}
+
+.notification-item.unread {
+    background-color: #e9ecef; /* Light gray background */
+}
+
+.notification-item.unread:hover {
+    background-color: #dee2e6; /* Light gray background on hover */
+}
+
+/* Admin dashboard container */
+.admin-dashboard-container {
+    max-width: 90%; /* Set the maximum width */ 
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+    padding: 20px; /* Add padding */
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+/* Table styles */
+.table-responsive {
+    margin-top: 20px; /* Add space above the table */
+}
+
+.table thead {
+    background-color: #1a2238; /* Dark blue background */
+    color: #ffffff; /* White text */
+}
+
+.table {
+    width: 100%; /* Full width */
+    margin-bottom: 1rem; /* Add space below the table */
+    color: #212529; /* Dark gray text */
+    vertical-align: top; /* Align the text to the top */
+    border-color: #dee2e6; /* Light gray border */
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6; /* Light gray border */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05); /* Light gray background */
+}
+
+.table-dark {
+    color: #fff; /* White text */
+    background-color: #212529; /* Dark gray background */
+}
+
+/* Button styles */
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem; /* Small font size */
+    border-radius: 0.2rem; /* Add rounded corners */
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #28a745; /* Green background */
+    border-color: #28a745; /* Green border */
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff; /* Blue background */
+        border-color: #007bff; /* Blue border */
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545; /* Red background */
+    border-color: #dc3545; /* Red border */
+}
+
+/* Alert styles */
+.alert {
+    position: relative; /* Position the alert relatively */
+    padding: 0.75rem 1.25rem; /* Add padding */
+    margin-bottom: 1rem; /* Add space below the alert */
+    border: 1px solid transparent; /* No border */
+    border-radius: 0.25rem; /* Add rounded corners */
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda; /* Light green background */
+    border-color: #c3e6cb; /* Light green border */
+}
+
+.alert-danger {
+    color: #721c24; /* Dark red text */
+    background-color: #f8d7da; /* Light red background */
+    border-color: #f5c6cb; /* Light red border */
+}
+
+.grid-view {
+    grid-template-columns: repeat(3, 1fr); /* Responsive grid */
+}
+
+.list-view {
+    grid-template-columns: 1fr; /* Responsive grid */
+}
+
+.result-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-height: 350px;
+}
+
+.result-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    margin-bottom: 10px; /* Add space below the heading */
+    font-size: 1.2rem; /* Set the font size */
+}
+
+.rating-container {
+    margin-bottom: 10px; /* Add space below the rating container */
+}
+
+.stars {
+    color: #ffc107; /* Yellow color */
+}
+
+.price {
+    margin-top: auto; /* Align the price to the bottom */
+    margin-bottom: 10px; /* Add space below the price */
+}
+
+.details-btn {
+    width: 100%;
+}
+
+.filter-section {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 20px; /* Add padding */
+    border-radius: 8px; /* Add rounded corners */
+    margin-bottom: 20px; /* Add space below the filter section */
+    height: 100%; /* Ensure the filter section takes full height */
+}
+
+/* Admin Navbar Styles */
+#adminNavbar {
+    background-color: #1a2238; /* Dark blue background */
+    padding: 0.5rem 1rem; /* Add padding */
+}
+
+#adminNavbar .navbar-brand,
+#adminNavbar .nav-link,
+#adminNavbar .navbar-text {
+    color: white;
+    font-size: 0.9rem; /* Set the font size */
+    transition: all 0.3s ease; /* Smooth transition for all elements */
+}
+
+#adminNavbar .navbar-brand {
+    font-size: 1.1rem; /* Set the font size */
+    font-weight: normal; /* Normal font weight */
+}
+
+#adminNavbar .navbar-nav {
+    margin-left: auto; /* Center the navbar items */
+    margin-right: auto; /* Center the navbar items */
+}
+
+#adminNavbar .nav-item {
+    margin: 0 0.2rem; /* Add space between items */
+}
+
+#adminNavbar .nav-link {
+    padding: 0.5rem 1rem; /* Add padding */
+    border-radius: 4px; /* Add rounded corners */
+}
+
+#adminNavbar .nav-link:hover,
+#adminNavbar .nav-link:focus,
+#adminNavbar .nav-link.active {
+    background-color: #9daaf2; /* Light blue background */
+}
+
+#adminNavbar .nav-link.active {
+    background-color: #ff6a3d; /* Orange background */
+}
+
+#adminNavbar .navbar-text {
+    padding: 0.5rem 1rem; /* Add padding */
+    font-weight: bold; /* Bold font weight */
+}
+
+#adminNavbar .btn-outline-light {
+    color: white;
+    border-color: white; /* White border */
+    font-size: 0.9rem; /* Set the font size */
+    padding: 0.375rem 0.75rem; /* Add padding */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+#adminNavbar .btn-outline-light:hover,
+#adminNavbar .btn-outline-light:focus {
+    background-color: white; /* White background */
+    color: #1a2238; /* Dark blue text */
+}
+
+.notification-icon {
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    border-radius: 50%; /* Add rounded corners */
+    display: flex; /* Display the icon as a flex container */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    color: white; /* White text */
+}
+
+.dropdown-item.unread {
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.dropdown-item:hover {
+    background-color: #e9ecef; /* Light gray background on hover */
+}
+
+.faq-container {
+    width: 90%; /* Set the width */
+    max-width: 800px; /* Set the maximum width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding */
+}
+
+h1 {
+    color: #1a2238; /* Dark blue text */
+    text-align: center; /* Center the text */
+    margin-bottom: 30px; /* Add space below the heading */
+    font-size: 2.5rem; /* Set the font size */
+}
+
+.accordion {
+    width: 80%; /* Set the width */
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border: none; /* No border */
+    border-radius: 8px; /* Add rounded corners */
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+.accordion-button {
+    background-color: #f0f4f8; /* Light gray background */
+    color: #1a2238; /* Dark blue text */
+    font-weight: bold; /* Bold font weight */
+    padding: 15px 20px; /* Add padding */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #1a2238; /* Dark blue background */
+    color: #ffffff; /* White text */
+}
+
+.accordion-button:hover {
+    background-color: #e0e8f0; /* Light gray background on hover */
+}
+
+.accordion-button:not(.collapsed):hover {
+    background-color: #2a3248; /* Dark blue background on hover */
+}
+
+.accordion-body {
+    background-color: #ffffff; /* White background */
+    padding: 20px; /* Add padding */
+    border-top: 1px solid #e0e8f0;
+}
+
+.auth-button-group {
+    display: flex; /* Display the button group as a flex container */
+    gap: 10px; /* Add space between items */
+    align-items: center; /* Center items vertically */
+}
+
+.auth-button-group .nav-link {
+    padding: 6px 15px; /* Add padding */
+    font-size: 14px; /* Set the font size */
+    color: white; /* White text */
+    border-radius: 20px; /* Add rounded corners */
+    transition: all 0.3s ease; /* Smooth transition */
+    text-decoration: none; /* Remove underline */
+    background: transparent; /* Transparent background */
+    border: none; /* No border */
+    outline: none; /* No outline */
+}
+
+.auth-button-group .nav-link:hover {
+    background-color: #9daaf2; /* Light blue background on hover */
+    color: white; /* White text */
+}
+
+.auth-button-group .nav-link.active {
+    background-color: #ff6a3d; /* Orange background */
+    color: white; /* White text */
+}
+
+.navbar-custom {
+    background-color: #1a2238 !important; /* Dark blue background */
+    padding: 0.5rem 1rem; /* Add padding */
+}
+
+/* Checkbox group styling */
+.form-check {
+    padding: 8px;
+    border-radius: 4px; /* Add rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.form-check:hover {
+    background-color: rgba(26, 34, 56, 0.05); /* Light gray background on hover */
+}
+
+.form-check-input {
+    cursor: pointer; /* Pointer/hand icon */
+}
+
+.form-check-label {
+    cursor: pointer;
+    color: #1a2238; /* Dark blue text */
+    font-weight: 500; /* Bold font weight */
+    margin-left: 4px; /* Add space to the left */
+}
+
+/* File input styling */
+.form-control[type="file"] {
+    padding: 8px; /* Add padding */
+    border-color: #ccc; /* Light gray border */
+}
+
+.form-control[type="file"]:focus {
+    border-color: #1a2238; /* Dark blue border */
+    box-shadow: 0 0 0 0.2rem rgba(26, 34, 56, 0.25); /* Add a shadow */
+}
+
+/* Textarea styling */
+textarea.form-control {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px; /* Set the minimum height */
+}
+
+/* Card styles for appointments */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+    border: 1px solid rgba(0, 0, 0, 0.125); /* Light gray border */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Move up slightly on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+.card-body {
+    padding: 1.25rem; /* Add padding */ 
+}
+
+.card-title {
+    color: #1a2238; /* Dark blue text */
+    margin-bottom: 1rem; /* Add space below the title */
+}
+
+/* Status badge styles */
+.status-badge {
+    padding: 0.35em 0.65em;
+    font-size: 0.75em; /* Set the font size */
+    font-weight: 700; /* Bold font weight */
+    border-radius: 0.25rem; /* Add rounded corners */
+    text-transform: capitalize; /* Capitalize the text */
+}
+
+.status-badge.pending {
+    background-color: #fff3cd; /* Light yellow background */
+    color: #856404; /* Dark yellow text */
+}
+
+.status-badge.completed {
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text */
+}
+
+.status-badge.cancelled {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text */
+}
+
+/* Alert styles for non-logged in users */
+.alert {
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+.alert-warning {
+    background-color: #fff3cd; /* Light yellow background */
+    border-color: #ffeeba; /* Light yellow border */
+}
+
+.alert .btn {
+    margin-top: 10px; /* Add space above the button */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.alert .btn:hover {
+    transform: translateY(-2px); /* Move up slightly on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+
+/* Login form styles */
+.login-box {
+    max-width: 400px; /* Set the maximum width */   
+    margin: 0 auto; /* Center the box */
+    padding: 20px; /* Add padding */
+    background-color: #f4db7d;  /* Changed to yellow */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+.login-box h2 {
+    color: #1a2238; /* Dark blue text */
+    margin-bottom: 1.5rem; /* Add space below the heading */
+}
+
+/* Form input styles */
+.form-label {
+    color: #1a2238; /* Dark blue text */
+    font-weight: 500; /* Bold font weight */
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 4px; /* Add rounded corners */
+    padding: 8px 12px; /* Add padding */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.form-control:focus {
+    border-color: #1a2238;
+    box-shadow: 0 0 0 0.2rem rgba(26, 34, 56, 0.25); /* Add a shadow */
+    outline: none; /* No outline */
+}
+
+/* Password toggle styles */
+.position-relative {
+    position: relative; /* Position relative */
+}
+
+.show-hide {
+    position: absolute;
+    right: 10px; /* Position to the right */
+    top: 50%; /* Position vertically in the center */
+    transform: translateY(-50%); /* Move up by half of its own height */
+    cursor: pointer; /* Pointer/hand icon */
+    color: #6c757d; /* Gray text */
+    z-index: 2; /* Ensure it stays on top of other elements */
+    display: flex; /* Display as a flex container */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding: 5px; /* Add padding */
+}
+
+/* Remember me checkbox styles */
+.form-check {
+    margin: 15px 0; /* Add space above and below */
+}
+
+.form-check-input {
+    cursor: pointer; /* Pointer/hand icon */
+}
+
+.form-check-label {
+    cursor: pointer;
+    color: #1a2238; /* Dark blue text */
+    font-size: 0.9rem; /* Set the font size */
+}
+
+.form-check-input:checked {
+    background-color: #1a2238; /* Dark blue background */
+    border-color: #1a2238; /* Dark blue border */
+}
+
+/* Login button styles */
+.btn-primary {
+    background-color: #1a2238;
+    border-color: #1a2238; /* Dark blue border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 1rem; /* Set the font size */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.btn-primary:hover {
+    background-color: #2a3248;
+    border-color: #2a3248; /* Dark blue border */
+        transform: translateY(-2px); /* Move up slightly on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+
+/* Login options styles */
+.login-options {
+    margin-top: 20px; /* Add space above */
+    text-align: center; /* Center the text */
+}
+
+.login-options a {
+    color: #1a2238;
+    text-decoration: none; /* No underline */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.login-options a:hover {
+    color: #ff6a3d; /* Orange text */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Add these styles for the hamburger menu */
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.75rem; /* Add padding */
+    font-size: 1.25rem; /* Set the font size */
+    background-color: transparent; /* Transparent background */
+    cursor: pointer; /* Pointer/hand icon */
+    position: relative; /* Position relative */
+}
+
+/* Custom hamburger icon */
+.hamburger {
+    width: 25px;
+    height: 20px; /* Set the height */
+    position: relative; /* Position relative */
+    display: none; /* Hidden by default, shown in mobile */
+}
+
+.hamburger span {
+    display: block;
+    position: absolute; /* Position absolute */
+    height: 2px; /* Set the height */
+    width: 100%; /* Set the width */
+    background: #1a2238; /* Dark blue background */
+    border-radius: 3px; /* Add rounded corners */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.unread {
+    background-color: #f0f0f0; /* Light gray background */
+    font-weight: bold; /* Bold font weight */
+}
+
+.notification-icon {
+    width: 30px;
+    height: 30px; /* Set the height */
+    border-radius: 50%; /* Add rounded corners */
+    display: flex; /* Display as a flex container */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    color: white; /* White text */
+}
+
+.hamburger span {
+    background-color: white; /* White background */ 
+}
+.hamburger span:nth-child(1) { top: 0; } /* Top line */
+.hamburger span:nth-child(2) { top: 9px; } /* Middle line */
+.hamburger span:nth-child(3) { top: 18px; } /* Bottom line */
+
+/* Animation for hamburger to X */
+.navbar-toggler[aria-expanded="true"] .hamburger span:nth-child(1) {
+    transform: rotate(45deg); /* Rotate 45 degrees */
+    top: 9px; /* Position the top line */
+}
+
+/* Middle line */
+.navbar-toggler[aria-expanded="true"] .hamburger span:nth-child(2) {
+    opacity: 0; /* Make the middle line invisible */
+}
+
+/* Bottom line */
+.navbar-toggler[aria-expanded="true"] .hamburger span:nth-child(3) {
+    transform: rotate(-45deg); /* Rotate -45 degrees */
+    top: 9px; /* Position the bottom line */
+}
+
+/* Main Media Queries */
+/* Tablet Devices */
+@media screen and (max-width: 992px) {
+    /* Layout & Container */
+    .container {
+        max-width: 95%; /* Set maximum width */
+        padding: 0 15px; /* Add padding */
+    }
+
+    /* Navigation */
+    .navbar-custom {
+        padding: 10px 15px; /* Add padding */
+    }
+    
+    .navbar-custom .navbar-nav {
+        margin: 0; /* Remove margin */
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem; /* Set font size */
+    }
+
+    /* Cards & Grids */
+    .tuition-center-card,
+    .recommendation-card,
+    .top-card {
+        flex: 0 0 calc(50% - 15px); /* Set flex properties */
+        max-width: calc(50% - 15px); /* Set maximum width */
+        min-height: 300px; /* Set minimum height */
+    }
+
+    .tuition-center-grid,
+    .recommendation-grid,
+    .top-grid {
+        gap: 15px; /* Add gap */
+    }
+
+    /* Admin Dashboard */
+    .admin-dashboard-container {
+        max-width: 95%; /* Set maximum width */
+        padding: 15px; /* Add padding */
+    }
+
+    #adminNavbar .navbar-nav {
+        margin-left: 0; /* Remove margin */
+        margin-right: 0; /* Remove margin */
+    }
+    
+    #adminNavbar .nav-item {
+        margin: 0.2rem 0; /* Add margin */
+    }
+
+    #adminNavbar .navbar-text,
+    #adminNavbar .btn-outline-light {
+        margin-top: 0.5rem; /* Add margin */
+        display: inline-block; /* Display as inline block */
+    }
+
+    .navbar-custom {
+        padding: 10px 15px; /* Add padding */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger */
+    }
+
+    .navbar-collapse {
+        background-color: #1a2238;
+        position: absolute; /* Position absolute */
+        top: 100%; /* Position at the bottom */
+        left: 0; /* Position at the left */
+        right: 0; /* Position at the right */
+        padding: 1rem; /* Add padding */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Add shadow */
+    }
+
+    .auth-section {
+        margin-top: 1rem; /* Add margin */
+        padding-top: 1rem; /* Add padding */
+        border-top: 1px solid rgba(255,255,255,0.1); /* Add border */
+    }
+
+    .profile-section {
+        display: flex; /* Display as flex container */
+        flex-direction: column; /* Stack children vertically */
+        align-items: center; /* Center items */
+        gap: 1rem; /* Add gap */
+    }
+
+    #profile {
+        width: 100%; /* Set width */
+        text-align: center; /* Center text */
+        margin-bottom: 0.5rem; /* Add margin */
+    }
+
+    .notification-dropdown {
+        width: 100%; /* Set width */
+        text-align: center; /* Center text */
+    }
+
+    .auth-button-group {
+        display: flex; /* Display as flex container */
+        flex-direction: row; /* Stack children horizontally */
+        gap: 0.5rem; /* Add gap */
+        width: auto; /* Set width */
+    }
+
+    .auth-button-group .btn {
+        width: 100%; /* Set width */
+        margin: 0; /* Remove margin */
+    }
+
+    .navbar-nav {
+        margin: 0; /* Remove margin */
+        padding: 1rem 0; /* Add padding */
+    }
+
+    .navbar-nav .nav-item {
+        text-align: center; /* Center text */
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem; /* Add padding */
+        color: white !important; /* Set color */
+    }
+
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(255,255,255,0.1); /* Set background color */
+    }
+
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+    }
+
+    .tuition-center-card {
+        flex: 0 0 calc(50% - 15px); /* Set flex properties */
+        max-width: calc(50% - 15px); /* Set maximum width */
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 768px) {
+    /* Layout & Container */
+    .container {
+        padding: 10px; /* Add padding */
+    }
+
+    /* Navigation */
+    .navbar-custom {
+        padding: 10px; /* Add padding */
+    }
+
+    .navbar-nav {
+        text-align: center; /* Center text */
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+        text-align: center; /* Center text */
+        padding: 5px 0; /* Add padding */
+    }
+
+    /* Cards & Grids */
+    .tuition-center-card,
+    .recommendation-card,
+    .top-card {
+        flex: 0 0 100%; /* Set flex properties */
+        max-width: 100%; /* Set maximum width */
+        margin-bottom: 15px; /* Add margin */
+    }
+
+    /* Forms & Inputs */
+    .input-box {
+        margin-bottom: 10px; /* Add margin */
+    }
+
+    .form-control {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .search-section {
+        padding: 15px 10px; /* Add padding */
+    }
+
+    .search-section form {
+        flex-direction: column; /* Stack children vertically */
+        width: 100%; /* Set width */
+        gap: 15px; /* Add gap */
+    }
+
+    .search-section .input-group {
+        width: 100%;
+        display: flex; /* Display as flex container */
+        align-items: center; /* Center items */
+        position: relative; /* Position relative */
+    }
+
+    .search-section input[type="text"] {
+        padding: 12px 35px; /* Slightly larger touch target */
+        font-size: 16px; /* Set font size */
+    }
+
+    .search-section .input-icon {
+        font-size: 18px; /* Slightly larger icons on mobile */
+    }
+
+    .search-section button {
+        width: 100%;
+        padding: 12px 20px; /* Add padding */
+        margin-top: 10px; /* Add margin */
+    }
+
+    /* Buttons */
+    .btn-group {
+        flex-direction: column; /* Stack children vertically */
+        gap: 8px; /* Add gap */
+    }
+
+    .details-btn,
+    footer .feedback button {
+        width: 100%;
+        margin: 5px 0; /* Add margin */
+        text-align: center; /* Center text */
+    }
+
+    /* Footer */
+    footer {
+        padding: 15px; /* Add padding */
+    }
+
+    .web-links {
+        flex-direction: column; /* Stack children vertically */
+        gap: 10px; /* Add gap */
+    }
+
+    /* Modals */
+    .lightbox-content {
+        width: 95%;
+        margin: 5% auto; /* Add margin */
+        padding: 15px; /* Add padding */
+    }
+
+    /* Admin Dashboard */
+    .admin-dashboard-container {
+        max-width: 100%; /* Set maximum width */
+        padding: 10px; /* Add padding */
+    }
+
+    /* Tables */
+    .table-responsive {
+        overflow-x: auto; /* Allow horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
+    /* Profile Sections */
+    .profile-details,
+    .notification-settings {
+        padding: 10px; /* Add padding */
+    }
+
+    /* Search Results */
+    .results-grid {
+        grid-template-columns: 1fr; /* 1 column for mobile */
+    }
+
+    .tuition-center-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: auto; /* Allow height to adjust based on content */
+        min-height: 300px;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .tuition-center-card img {
+        height: 200px; /* Adjust image height for mobile */
+    }
+
+    /* Adjust the container padding */
+    .container-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Adjust the row margins */
+    .row {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    /* Adjust column padding */
+    .col-md-3, .col-md-9 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .edit-form-container {
+        margin: 60px 20px 30px; /* Add margin 60 for top, 20 for sides, 30 for bottom */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .navbar-collapse {
+        position: absolute; /* Position absolutely */
+        top: 100%; /* Position at the bottom */
+        left: 0; /* Position at the left */
+        right: 0; /* Position at the right */
+        background-color: #1a2238; /* Set background color */
+        padding: 1rem; /* Add padding */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Add shadow */
+        transform: translateY(-100%); /* 100% of the height of the navbar-collapse*/
+        opacity: 0; /* Set opacity */
+        visibility: hidden; /* Set visibility */
+        transition: all 0.3s ease; /* Set transition */
+    }
+
+    .navbar-collapse.show {
+        transform: translateY(0); /* 0% of the height of the navbar-collapse */
+        opacity: 1; /* Set opacity */
+        visibility: visible; /* Set visibility */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Stack children vertically */
+        width: 100%; /* Set width */
+    }
+
+    .navbar-nav .nav-item {
+        margin: 0.5rem 0; /* Add margin (0.5rem for top and bottom, 0 for sides) */
+        width: 100%; /* Set width */
+        text-align: center; /* Center text */
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem; /* Add padding */
+        width: 100%; /* Set width */
+        display: block; /* Display as block */
+    }
+
+    #notificationCount {
+        font-size: 10px; /* Smaller font size for mobile */
+        padding: 0.2em 0.5em; /* Adjust padding for mobile */
+    }
+
+    /* Adjust auth buttons for mobile */
+    .auth-button-group {
+        flex-direction: column; /* Stack children vertically */
+        width: 100%; /* Set width */
+        gap: 0.5rem; /* Add gap */
+    }
+
+    .auth-button-group .btn {
+        width: 100%; /* Set width */
+    }
+
+    /* Profile and notification adjustments */
+    .d-flex {
+        flex-direction: column; /* Stack children vertically */
+        width: 100%; /* Set width */
+        gap: 0.5rem; /* Add gap */
+    }
+
+    #profile {
+        width: 100%; /* Set width */
+        text-align: center; /* Center text */
+    }
+
+    .tuition-header {
+        flex-direction: column; /* Stack children vertically */
+    }
+
+    .tuition-image, 
+    .tuition-info {
+        width: 100%; /* Set width */
+        padding-left: 0; /* Remove padding */
+    }
+
+    .tuition-image {
+        margin-bottom: 20px; /* Add margin */
+    }
+
+    .action-buttons {
+        flex-direction: column; /* Stack children vertically */
+    }
+
+    .booking-btn, 
+    .review-btn {
+        width: 100%; /* Set width */
+    }
+
+    .about-container {
+        padding: 15px 25px; /* Increased horizontal padding (15px for top and bottom, 25px for sides) */
+    }
+
+    .about-section {
+        padding: 20px; /* Add padding */
+        margin-bottom: 20px; /* Add margin */
+    }
+
+    /* Add padding to the main content area */
+    .col-md-8.offset-md-2 {
+        padding: 0 20px; /* Add horizontal padding (20px for sides) */
+    }
+
+    /* Adjust section spacing */
+    section.mb-5 {
+        margin-bottom: 30px !important; /* Add margin (important to override default margin) */
+        padding: 0 10px; /* Add some padding to the sections (10px for sides) */
+    }
+
+    /* Adjust feature cards */
+    .feature-card {
+        padding: 20px; /* Add padding */
+        margin: 10px 0; /* Add margin */
+    }
+
+    /* Adjust subject grid */
+    .subject-grid {
+        padding: 10px; /* Add padding */
+        gap: 12px; /* Add gap */
+    }
+
+    /* Adjust timeline items */
+    .timeline-item {
+        padding: 20px;
+        margin-left: 40px; /* Reduced margin for mobile */
+        margin-right: 10px; /* Added right margin */
+    }
+
+    /* Adjust text content */
+    p {
+        margin-bottom: 15px; /* Add margin */
+        line-height: 1.6; /* Set line height */
+    }
+
+    /* Adjust headings */
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px; /* Add margin */
+        padding: 0 15px; /* Add padding */
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 15px; /* Add margin */
+        padding: 0 15px; /* Add padding */
+    }
+
+    .no-results {
+        width: 85%;
+        padding: 20px;
+        font-size: 1rem;
+        min-width: auto; /* Remove min-width constraint for mobile */
+        position: fixed; /* Change to fixed positioning */
+        top: 40%;
+    }
+
+    .pagination-controls {
+        width: 90%; /* Set width */
+        padding: 10px; /* Add padding */
+    }
+
+    .pagination-container {
+        margin-top: 1.5rem; /* Add margin */
+        margin-bottom: 1.5rem; /* Add margin */
+    }
+    
+    .pagination {
+        gap: 3px; /* Add gap */
+    }
+    
+    .pagination .page-link {
+        padding: 6px 12px; /* Add padding */
+        font-size: 0.9rem; /* Set font size */
+    }
+    
+    /* Hide page numbers when too many, keep prev/next */
+    .pagination .page-item:not(:first-child):not(:last-child) {
+        display: none; /* Hide page numbers */
+    }
+    
+    /* Show active page number */
+    .pagination .page-item.active {
+        display: inline-block; /* Show active page number */
+    }
+}
+
+/* Subject Checkboxes */
+.subject-checkboxes {
+    display: grid; /* Display as a grid */
+    grid-template-columns: repeat(2, 1fr); /* Create two columns (1fr for equal width) */
+    gap: 10px; /* Add space between items */
+    max-height: none; /* Allow items to grow */
+    overflow: visible; /* Show all items */
+}
+
+.form-check {
+    padding: 8px; /* Add padding */
+    transition: background-color 0.2s; /* Smooth transition */
+}
+
+.form-check:hover {
+    border-radius: 4px; /* Add rounded corners on hover */
+}
+
+.form-check-label {
+    cursor: pointer; /* Set cursor (pointer for clickable) */
+    user-select: none; /* Prevent text selection */
+    color: #495057; /* Set text color */
+}
+
+.form-check-input:checked + .form-check-label {
+    font-weight: 500; /* Set font weight */
+}
+
+.features-list {
+    padding: 20px; /* Add padding */
+    background-color: #f8f9fa; /* Set background color */
+    border-radius: 8px; /* Add rounded corners */
+    margin: 15px 0; /* Add margin */
+}
+
+.features-list p {
+    margin-bottom: 15px; /* Add margin */
+    padding-left: 10px; /* Add padding */
+}
+
+.features-list i {
+    color: #0d6efd;
+    margin-right: 10px; /* Add margin */
+    width: 20px; /* Set width */
+    text-align: center; /* Center text */
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 20px;
+    padding: 20px;
+    overflow-x: hidden; /* Add this to prevent horizontal scroll */
+}
+
+.card-content {
+    padding: 10px; /* Add padding */
+}
+
+.rating-container {
+    color: #ffc107; /* Set text color */
+    margin: 10px 0; /* Add margin */
+}
+
+.rating-container i {
+    margin-right: 2px; /* Add margin */
+}
+
+.distance {
+    color: #000000; /* Set text color */
+    margin: 10px 0; /* Add margin */
+}
+
+.details-btn {
+    width: 100%; /* Set width */
+    margin-top: 10px; /* Add margin */
+}
+
+.no-results {
+    position: absolute; /* Position absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center using transform */
+    text-align: center; /* Center text */
+    padding: 30px; /* Add padding */
+    background: white; /* Set background color */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Add shadow */
+    width: auto; /* Set width */
+    min-width: 250px; /* Set minimum width */
+    font-size: 1.1rem; /* Set font size */
+    color: #666; /* Set text color */
+}
+
+.card-content h3 {
+    font-size: 1.1rem; /* Set font size */  
+    margin: 0; /* Remove margin */
+    line-height: 1.2; /* Set line height */
+    height: 2.4em; /* Set height */
+    overflow: hidden; /* Hide overflow */
+    display: -webkit-box; /* Enable text truncation */
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical; /* Set orientation */
+}
+
+.rating-container {
+    margin: 5px 0; /* Add margin */
+}
+
+.stars {
+    color: #ffc107; /* Set text color */
+}
+
+.rating-text {
+    color: #666;
+    font-size: 0.9rem; /* Set font size */
+    margin-left: 5px; /* Add margin */
+}
+
+.price {
+    margin: 5px 0; /* Add margin */
+    color: #333; /* Set text color */
+}
+
+.details-btn {
+    align-self: flex-start;
+    padding: 6px 15px; /* Add padding */
+    margin-top: auto; /* Push to bottom */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .result-card {
+        flex-direction: column; /* Stack children vertically */
+        height: auto; /* Set height */
+        width: 100%;
+    }
+
+    .result-card img {
+        width: 100%; /* Set width */
+        height: 180px; /* Set height */
+    }
+
+    .card-content {
+        padding: 15px; /* Add padding */
+        min-height: 150px; /* Set minimum height */
+    }
+
+    .details-btn {
+        width: 100%; /* Set width */
+    }
+}
+
+/* Pagination Controls */
+.pagination-controls {
+    position: fixed; /* Position fixed */
+        bottom: 20px; /* Add bottom margin */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center using transform */
+    background-color: rgba(255, 255, 255, 0.9); /* Set background color */
+    padding: 15px 25px; /* Add padding */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+    z-index: 100; /* Set z-index */
+    display: flex; /* Display as a flex container */
+    gap: 10px; /* Add space between items */
+    align-items: center; /* Center items vertically */
+}
+
+/* Style for the buttons */
+.pagination-controls button {
+    min-width: 100px;  /* Ensure consistent button width */
+    padding: 8px 15px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Add rounded corners */
+    cursor: pointer; /* Set cursor */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Disabled button */
+.pagination-controls button:disabled {
+    opacity: 0.5; /* Set opacity */
+    cursor: not-allowed; /* Set cursor */
+}
+
+/* Style for the page indicator */
+.pagination-controls .btn-outline-secondary {
+    min-width: 120px; /* Set minimum width */
+    text-align: center; /* Center text */
+}
+
