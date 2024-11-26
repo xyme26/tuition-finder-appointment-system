@@ -13,7 +13,8 @@ if (isset($_GET['id'])) { // Ensure the parameter name matches
 
     // Modify the SQL query
     $sql = "SELECT t.*, 
-                   (6371 * acos(cos(radians(?)) * cos(radians(t.latitude)) * cos(radians(t.longitude) - radians(?)) + sin(radians(?)) * sin(radians(t.latitude)))) AS distance
+                   (6371 * acos(cos(radians(?)) * cos(radians(t.latitude)) * cos(radians(t.longitude) - radians(?))
+                    + sin(radians(?)) * sin(radians(t.latitude)))) AS distance
             FROM tuition_centers t 
             WHERE t.id = ?";
 
@@ -345,6 +346,19 @@ $averageRating = $row['avg_rating'] ? number_format($row['avg_rating'], 1) : 0;
         margin-top: 2px;
     }
 
+    .travel-time {
+        font-weight: bold;
+        color: #0d53af; 
+        font-size: 1.2rem; /* Increase the font size */
+        background-color: #f0f8ff; /* Light background color for contrast */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 5px 10px; /* Add some padding around the text */
+        border-radius: 5px; /* Rounded corners */
+        border-style: solid;
+        border-color: #1a2238;
+        display: inline-block; /* Make it inline-block to respect padding */
+        max-width: max-content;
+    }
     </style>
 </head>
 
@@ -371,7 +385,8 @@ $averageRating = $row['avg_rating'] ? number_format($row['avg_rating'], 1) : 0;
                     </div>
                 </div>
                 <p><strong><i class="fas fa-map-marker-alt"></i> Address:</strong> <span><?php echo htmlspecialchars($tuition['address']); ?></span></p>
-                <!--<p><strong><i class="fa-solid fa-location-dot"></i> Distance:</strong> <span><?php echo htmlspecialchars($tuition['distance']); ?></span></p>-->
+                <p><strong><i class="fa-solid fa-location-dot"></i> Distance:</strong> <span><?php echo htmlspecialchars($tuition['distance']); ?></span></p>
+                <p><strong><i class="fas fa-clock"></i> Estimated Travel Time:</strong> <span id="travel-time" class="travel-time">Calculating...</span></p>
                 <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($tuition['address']); ?>" 
                     class="btn btn-sm btn-secondary mb-2 google-maps-btn" target="_blank" rel="noopener noreferrer">
                      <i class="fas fa-map-marker-alt"></i> View on Google Maps
@@ -892,6 +907,36 @@ $averageRating = $row['avg_rating'] ? number_format($row['avg_rating'], 1) : 0;
                 alert('An error occurred while updating favorite status');
             });
         });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get user's current location from session
+        const userLat = <?php echo json_encode($_SESSION['user_lat'] ?? 0); ?>; // User's latitude
+        const userLng = <?php echo json_encode($_SESSION['user_lon'] ?? 0); ?>; // User's longitude
+        const tuitionAddress = "<?php echo htmlspecialchars($tuition['address']); ?>"; // Tuition center's address
+
+        // Function to fetch travel time from user's location to the tuition center
+        function fetchTravelTime() {
+            const service = new google.maps.DistanceMatrixService(); // Create a new DistanceMatrixService instance
+            service.getDistanceMatrix({
+                origins: [{ lat: userLat, lng: userLng }], // Set the origin to the user's location
+                destinations: [tuitionAddress], // Set the destination to the tuition center's address
+                travelMode: 'DRIVING', // Driving mode
+                unitSystem: google.maps.UnitSystem.METRIC, // Use metric units for distance
+            }, (response, status) => {
+                // Callback function to handle the response from the Distance Matrix API
+                if (status === 'OK') {
+                    const travelTime = response.rows[0].elements[0].duration.text; // Get the travel time from the response
+                    document.getElementById('travel-time').innerText = travelTime; // Display the travel time in the designated HTML element
+                } else {
+                    console.error('Error fetching travel time:', status); // Log an error if the request fails
+                    document.getElementById('travel-time').innerText = 'Unable to calculate'; // Fallback message if travel time cannot be calculated
+                }
+            });
+        }
+
+        // Call the function to fetch travel time when the page loads
+        fetchTravelTime();
     });
 </script>
 </body>
