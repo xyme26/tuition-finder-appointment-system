@@ -12,10 +12,12 @@ $sql = "SELECT t.id, t.name, t.image, t.latitude, t.longitude,
                COALESCE(t.address, '') as address,
                IFNULL(AVG(r.rating), 0) AS avg_rating,
                (6371 * acos(cos(radians(?)) * cos(radians(t.latitude)) * cos(radians(t.longitude) - radians(?)) + sin(radians(?)) * sin(radians(t.latitude)))) AS distance
+               COUNT(r.id) as review_count
         FROM tuition_centers t
         LEFT JOIN reviews r ON t.id = r.tuition_center_id
         GROUP BY t.id
-        ORDER BY distance";
+        ORDER BY distance asc
+        LIMIT 5";
 
 // Prepare the statement
 $stmt = $conn->prepare($sql);
