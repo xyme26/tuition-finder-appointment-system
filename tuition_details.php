@@ -917,12 +917,14 @@ $averageRating = $row['avg_rating'] ? number_format($row['avg_rating'], 1) : 0;
 
         // Function to fetch travel time from user's location to the tuition center
         function fetchTravelTime() {
+            // Defined to fetch the travel time using the Google Maps Distance Matrix API
             const service = new google.maps.DistanceMatrixService(); // Create a new DistanceMatrixService instance
+            // Set up the parameters for the Distance Matrix API request
             service.getDistanceMatrix({
-                origins: [{ lat: userLat, lng: userLng }], // Set the origin to the user's location
-                destinations: [tuitionAddress], // Set the destination to the tuition center's address
-                travelMode: 'DRIVING', // Driving mode
-                unitSystem: google.maps.UnitSystem.METRIC, // Use metric units for distance
+                origins: [{ lat: userLat, lng: userLng }], // Set the origin to the user's location (starting point)
+                destinations: [tuitionAddress], // Set the destination to the tuition center's address (endpoint)
+                travelMode: 'DRIVING', // Driving mode (Transportation mode)
+                unitSystem: google.maps.UnitSystem.METRIC, // Use metric units for distance (Distance measurement set to metric)
             }, (response, status) => {
                 // Callback function to handle the response from the Distance Matrix API
                 if (status === 'OK') {
