@@ -386,7 +386,7 @@ $averageRating = $row['avg_rating'] ? number_format($row['avg_rating'], 1) : 0;
                 </div>
                 <p><strong><i class="fas fa-map-marker-alt"></i> Address:</strong> <span><?php echo htmlspecialchars($tuition['address']); ?></span></p>
                 <p><strong><i class="fa-solid fa-location-dot"></i> Distance:</strong> <span><?php echo htmlspecialchars($tuition['distance']); ?></span></p>
-                <p><strong><i class="fas fa-clock"></i> Estimated Travel Time: (By car)</strong> <span id="travel-time" class="travel-time">Calculating...</span></p>
+                <p><strong><i class="fas fa-clock"></i> Estimated Travel Time (By car): </strong> <span id="travel-time" class="travel-time">Calculating...</span></p>
                 <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($tuition['address']); ?>" 
                     class="btn btn-sm btn-secondary mb-2 google-maps-btn" target="_blank" rel="noopener noreferrer">
                      <i class="fas fa-map-marker-alt"></i> View on Google Maps
