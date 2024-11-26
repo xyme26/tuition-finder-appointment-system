@@ -288,6 +288,10 @@ if ($first_visit) {
                                 ?>
                                 <span class="rating-text"><?php echo number_format($rating, 1); ?></span>
                             </div>
+                            <span class="review-count">
+                                <i class="fas fa-comment"></i>
+                                <?php echo (int)$center['review_count']; ?> reviews
+                            </span>
                             <!-- Link to the tuition center details page -->
                             <a href="tuition_details.php?id=<?php echo $center['id']; ?>" 
                                class="btn btn-primary details-btn">Details</a>
