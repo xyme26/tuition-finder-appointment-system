@@ -239,7 +239,7 @@ $conn->close();
     </style>
 <body>
     <?php include 'header.php'; ?>
-    <br><br>
+    <br>
 
     <!-- Profile Container -->
     <div class="profile-container">
@@ -462,73 +462,51 @@ $conn->close();
     <?php include 'footer.php'; ?>
 
     <script>
-        // Function to handle AJAX form submissions
-        function handleFormSubmit(formId) {
-            // Add event listener to the form
-            document.getElementById(formId).addEventListener('submit', function (event) {
-                event.preventDefault();
-                const formData = new FormData(this);
-                const url = 'update_profile.php';
+       // Adjust the field mapping to support all forms
+function handleFormSubmit(formId) {
+    document.getElementById(formId).addEventListener('submit', function (event) {
+        event.preventDefault();
+        const formData = new FormData(this);
 
-                // Fetch the data from the form
-                fetch(url, {
-                    method: 'POST',
-                    body: formData,
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Check if the update was successful
-                    if (data.success) {
-                        // Update the displayed value
-                        const fields = ['first_name', 'last_name', 'email', 'phone_number', 'address', 'username'];
-                        fields.forEach(field => {
-                            // Get the value of the field from the form data
-                            const value = formData.get(field);
+        fetch('update_profile.php', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Update the displayed fields for all supported forms
+                const formFields = {
+                    editNameForm: ['first_name', 'last_name'],
+                    editEmailForm: ['email'],
+                    editPhoneForm: ['phone_number'],
+                    editAddressForm: ['address'],
+                    editUsernameForm: ['username'],
+                };
 
-                            // Check if the value is not null
-                            if (value !== null) {
-                                // Update the displayed value
-                                if (field === 'first_name' || field === 'last_name') {
-                                    // Get the span element with the data-field attribute
-                                    const nameSpan = document.querySelector(`.profile-item span[data-field="name"]`);
-                                    // Split the text content into first and last names
-                                    let [firstName, lastName] = nameSpan.textContent.split(' ');
-                                    // Update the first name if the field is first_name
-                                    if (field === 'first_name') {
-                                        firstName = value;
-                                    } else {
-                                        lastName = value;
-                                    }
-                                    // Update the displayed name
-                                    nameSpan.textContent = `${firstName} ${lastName}`.trim();
-                                } else {
-                                    // Map phone_number to phone for display purposes
-                                    const displayField = field === 'phone_number' ? 'phone' : field;
-                                    document.querySelector(`.profile-item span[data-field="${displayField}"]`).textContent = value;
-                                }
-                            }
-                        });
-
-                    // Close the modal
-                    const modalId = `edit${formId.replace('Form', '')}Modal`;
-                    const modalElement = document.getElementById(modalId);
-                    const modalInstance = bootstrap.Modal.getInstance(modalElement);
-                    if (modalInstance) {
-                        modalInstance.hide();
+                const fieldsToUpdate = formFields[formId] || [];
+                fieldsToUpdate.forEach(field => {
+                    const value = formData.get(field);
+                    if (value) {
+                        const displayField = field === 'phone_number' ? 'phone' : field;
+                        document.querySelector(`.profile-item span[data-field="${displayField}"]`).textContent = value;
                     }
-                } else {
-                    // Display an error message if the update failed
-                    console.error('Update failed:', data.error);
-                    alert('Failed to update profile. Please try again.');
-                }
-            })
-            .catch(error => {
-                // Display an error message if there was an error with the fetch request
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
-            });
+                });
+
+                // Close the modal
+                const modalId = `${formId.replace('Form', '')}Modal`;
+                bootstrap.Modal.getInstance(document.getElementById(modalId)).hide();
+            } else {
+                alert('Failed to update profile. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
         });
-        }
+    });
+}
+
 
         // Initialize the forms
         handleFormSubmit('editNameForm');
